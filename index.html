@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
     header{position:sticky;top:0;z-index:1000;background:rgba(251,247,239,.97);border-bottom:1px solid rgba(15,52,84,.08)}
     .nav{max-width:1200px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:22px}
     .brand{display:flex;align-items:center;gap:12px}
-    .brand img{width:78px;height:68px;object-fit:contain}
+    .brand img{width:78px;height:68px;object-fit:contain;background:transparent;border:none;box-shadow:none}
     .brand h1{font-family:Manrope,sans-serif;font-size:24px;font-weight:800;line-height:1.05}
     .brand p{font-size:13px;font-style:italic;color:#52606d}
     .nav-links{display:flex;gap:18px;font-size:14px;font-weight:700;flex-wrap:wrap}
@@ -71,7 +72,9 @@
     .card ul{padding-left:18px;font-size:14px;line-height:1.75;margin-bottom:16px}
     .card a{font-weight:800;border-bottom:1px solid var(--deep)}
 
-    .fingerprint-photo{background-image:linear-gradient(rgba(8,35,59,.08),rgba(8,35,59,.12)),url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80')}
+    .fingerprint-photo{
+      background-image:linear-gradient(rgba(8,35,59,.05),rgba(8,35,59,.12)),url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80');
+    }
 
     .values{background:white}
     .value-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -98,16 +101,25 @@
     button{width:100%}
     .privacy-note{font-size:12px;color:var(--text);margin-top:8px}
 
-    footer{background:#08233b;color:white;text-align:center;padding:44px 24px}
-    .footer-brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:16px}
-    .footer-brand img{width:58px;height:50px;object-fit:contain}
+    footer{background:#08233b;color:white;position:relative;overflow:hidden;padding:38px 24px;text-align:center}
+    .footer-inner{max-width:1100px;margin:auto;position:relative;z-index:2}
+    .footer-candle{
+      position:absolute;
+      right:0;
+      bottom:0;
+      width:270px;
+      height:150px;
+      background:linear-gradient(90deg,rgba(8,35,59,.2),rgba(8,35,59,.15)),url('https://images.unsplash.com/photo-1602874801006-e26a9e49a537?auto=format&fit=crop&w=900&q=80');
+      background-size:cover;
+      background-position:center;
+      opacity:.88;
+      border-top-left-radius:30px;
+    }
+    .footer-brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:12px}
+    .footer-brand img{width:58px;height:50px;object-fit:contain;background:transparent;border:none}
     footer em,footer p,footer a{color:#dce9f5}
-    .footer-quote{font-family:'Cormorant Garamond',serif;font-size:30px;margin:18px auto 12px;max-width:780px}
-    .disclaimer{font-size:12px;color:#dce9f5;margin-top:12px;max-width:850px;margin-left:auto;margin-right:auto}
-
-    .candle{width:34px;height:58px;background:#f9f1dd;border-radius:8px 8px 5px 5px;margin:0 auto 18px;position:relative;box-shadow:0 0 30px rgba(201,154,61,.35)}
-    .candle:before{content:"";position:absolute;top:-23px;left:9px;width:16px;height:26px;background:radial-gradient(circle at 50% 65%,#fff7c2 0%,#f4b942 45%,#d87820 78%);border-radius:50% 50% 45% 45%;box-shadow:0 0 22px rgba(244,185,66,.75)}
-    .candle:after{content:"";position:absolute;top:-3px;left:15px;width:4px;height:12px;background:#3c2a19;border-radius:3px}
+    .footer-quote{font-family:'Cormorant Garamond',serif;font-size:28px;margin:14px auto 10px;max-width:760px}
+    .disclaimer{font-size:12px;color:#dce9f5;margin-top:10px;max-width:850px;margin-left:auto;margin-right:auto}
 
     @media(max-width:980px){
       .nav{flex-direction:column;align-items:flex-start}
@@ -115,6 +127,7 @@
       .cards,.grid,.value-row,.split,.promise-grid{grid-template-columns:1fr}
       .trust{margin:0 18px}
       .hero{min-height:auto;background-position:center}
+      .footer-candle{opacity:.28;width:220px;height:130px}
     }
   </style>
 </head>
@@ -264,7 +277,7 @@
       </div>
 
       <div class="card">
-        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80')"></div>
         <div class="card-body">
           <h3>Candle Grove Consulting</h3>
           <div class="subtitle">Trusted guidance for important decisions.</div>
@@ -351,7 +364,7 @@
           <option>I'm a referral partner</option>
         </select>
         <textarea name="message" placeholder="How can we help?"></textarea>
-        <button class="btn" type="submit">Begin Your Care Journey</button>
+        <button class="btn" type="submit">Submit Inquiry</button>
         <p class="privacy-note">Information submitted through this form is used only to respond to your inquiry.</p>
       </form>
     </div>
@@ -359,17 +372,20 @@
 </section>
 
 <footer>
-  <div class="candle"></div>
-  <div class="footer-brand">
-    <img src="logo.png" alt="Candle Grove Home Care logo">
-    <div><strong>Candle Grove Home Care</strong><br><em>Where Care Feels Like Home</em></div>
+  <div class="footer-candle"></div>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo.png" alt="Candle Grove Home Care logo">
+      <div><strong>Candle Grove Home Care</strong><br><em>Where Care Feels Like Home</em></div>
+    </div>
+    <div class="footer-quote">“When we care for others, we make a brighter tomorrow.”</div>
+    <p>Serving Northeast Ohio with compassion, dignity, and trusted support.</p>
+    <p><strong>Phone:</strong> <a href="tel:+12165280009">(216) 528-0009</a> &nbsp; | &nbsp; <strong>Email:</strong> <a href="mailto:info@candlegrovehomecare.com">info@candlegrovehomecare.com</a></p>
+    <p class="disclaimer">Candle Grove Home Care provides non-medical home care services. We do not provide skilled nursing or medical services.</p>
+    <p>© 2026 Candle Grove Home Care. All rights reserved.</p>
   </div>
-  <div class="footer-quote">“When we care for others, we make a brighter tomorrow.”</div>
-  <p>Serving Northeast Ohio with compassion, dignity, and trusted support.</p>
-  <p><strong>Phone:</strong> <a href="tel:+12165280009">(216) 528-0009</a> &nbsp; | &nbsp; <strong>Email:</strong> <a href="mailto:info@candlegrovehomecare.com">info@candlegrovehomecare.com</a></p>
-  <p class="disclaimer">Candle Grove Home Care provides non-medical home care services. We do not provide skilled nursing or medical services.</p>
-  <p>© 2026 Candle Grove Home Care. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
+```
