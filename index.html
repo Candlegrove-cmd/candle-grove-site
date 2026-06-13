@@ -371,6 +371,379 @@
   </div>
 </section>
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Candle Grove Home Care | Where Care Feels Like Home</title>
+  <meta name="description" content="Candle Grove Home Care provides dependable, compassionate non-medical home care services throughout Northeast Ohio, including personal care, companionship, transportation, meal preparation, respite care, errands, and family support.">
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Manrope,sans-serif;background:#fbf7ef;color:#102b43;line-height:1.65}
+    a{text-decoration:none;color:inherit}
+    :root{--navy:#0f3454;--deep:#08233b;--gold:#c99a3d;--cream:#fbf7ef;--soft:#f5ecde;--text:#445566;--white:#fff}
+    h1,h2,h3{font-family:'Cormorant Garamond',serif;color:var(--deep);line-height:1.08}
+    .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:12px;font-weight:800;margin-bottom:10px}
+
+    header{position:sticky;top:0;z-index:1000;background:rgba(251,247,239,.97);border-bottom:1px solid rgba(15,52,84,.08)}
+    .nav{max-width:1200px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:78px;height:68px;object-fit:contain;background:transparent;border:none;box-shadow:none}
+    .brand h1{font-family:Manrope,sans-serif;font-size:24px;font-weight:800;line-height:1.05}
+    .brand p{font-size:13px;font-style:italic;color:#52606d}
+    .nav-links{display:flex;gap:18px;font-size:14px;font-weight:700;flex-wrap:wrap}
+    .top-btn,.btn{background:var(--gold);color:white;padding:13px 23px;border-radius:999px;font-weight:800;display:inline-block;border:none;cursor:pointer}
+
+    .hero{min-height:610px;background:linear-gradient(90deg,rgba(251,247,239,.95),rgba(251,247,239,.78),rgba(251,247,239,.15)),url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center right;display:flex;align-items:center;padding:76px 24px}
+    .hero-inner{max-width:1200px;margin:auto;width:100%}
+    .hero-copy{max-width:520px}
+    .hero h2{font-size:clamp(42px,5vw,62px);margin-bottom:16px}
+    .hero p{font-size:17px;color:var(--text);max-width:455px;margin-bottom:26px}
+    .divider{width:210px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:14px 0 22px}
+
+    .trust{max-width:1000px;margin:-46px auto 0;background:white;border-radius:22px;padding:28px 36px;text-align:center;box-shadow:0 18px 48px rgba(15,52,84,.14);position:relative;z-index:5}
+    .trust h3{font-family:Manrope,sans-serif;font-size:20px;font-weight:800}
+    .trust p{color:var(--text);font-size:15px;max-width:760px;margin:6px auto 0}
+
+    section{padding:82px 24px}
+    .container{max-width:1160px;margin:auto}
+    .section-head{text-align:center;max-width:790px;margin:0 auto 48px}
+    .section-head h2{font-size:clamp(32px,4vw,43px);margin-bottom:12px}
+    .section-head p,.split p{color:var(--text)}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+    .split h2{font-size:clamp(32px,4vw,42px);margin-bottom:14px}
+
+    .about{background:white}
+    .about-img{height:340px;border-radius:22px;background:url('https://images.unsplash.com/photo-1576765607924-0a6d4e9c3336?auto=format&fit=crop&w=1200&q=80') center/cover;box-shadow:0 18px 42px rgba(15,52,84,.12)}
+
+    .services,.resources,.serve{background:var(--soft)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .box{background:white;border-radius:18px;padding:22px;border:1px solid rgba(15,52,84,.08);box-shadow:0 12px 28px rgba(15,52,84,.06)}
+    .box strong{display:block;font-size:16px;color:var(--deep);margin-bottom:6px}
+    .box span,.box p{font-size:14.5px;color:var(--text)}
+
+    .why{background:white}
+    .promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .promise-card{background:var(--cream);border-radius:20px;padding:28px;border:1px solid rgba(15,52,84,.08);box-shadow:0 12px 30px rgba(15,52,84,.06)}
+    .promise-card h3{font-family:Manrope,sans-serif;font-size:18px;font-weight:800;margin-bottom:10px}
+    .promise-card p{font-size:14.5px;color:var(--text)}
+
+    .collection{background:var(--cream)}
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+    .card{background:white;border-radius:20px;overflow:hidden;border:1px solid rgba(201,154,61,.24);box-shadow:0 16px 40px rgba(15,52,84,.08)}
+    .card-img{height:205px;background-size:cover;background-position:center}
+    .card-body{padding:26px 23px}
+    .card h3{font-size:27px;margin-bottom:10px}
+    .subtitle{color:var(--gold);font-weight:800;font-size:14px;margin-bottom:10px}
+    .card p{font-size:15px;color:var(--text);margin-bottom:13px}
+    .card ul{padding-left:18px;font-size:14px;line-height:1.75;margin-bottom:16px}
+    .card a{font-weight:800;border-bottom:1px solid var(--deep)}
+
+    .fingerprint-photo{
+      background-image:linear-gradient(rgba(8,35,59,.05),rgba(8,35,59,.12)),url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80');
+    }
+
+    .values{background:white}
+    .value-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .value{background:var(--cream);border-radius:18px;overflow:hidden;box-shadow:0 14px 34px rgba(15,52,84,.08)}
+    .value-img{height:165px;background-size:cover;background-position:center}
+    .value-body{padding:22px}
+    .value h3{font-family:Manrope,sans-serif;font-size:18px;font-weight:800;margin-bottom:6px}
+    .value p{font-size:14px;color:var(--text)}
+
+    .foundation{background:white}
+    .foundation-box{background:#08233b;color:white;border-radius:24px;padding:42px;box-shadow:0 20px 50px rgba(15,52,84,.16)}
+    .foundation-box h2{color:white;font-size:clamp(32px,4vw,42px);margin-bottom:14px}
+    .foundation-box p{color:#dce9f5}
+
+    .careers{background:linear-gradient(90deg,#08233b,#0f3454);color:white}
+    .careers h2{color:white}
+    .careers p{color:#edf4f8}
+    .careers-photo{height:260px;border-radius:22px;background:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80') center/cover}
+
+    .contact{background:white}
+    .contact-box{background:var(--cream);border-radius:20px;padding:32px;box-shadow:0 16px 40px rgba(15,52,84,.10)}
+    input,select,textarea{width:100%;padding:14px;border-radius:12px;border:1px solid rgba(15,52,84,.16);margin-bottom:13px;font-family:inherit}
+    textarea{min-height:120px}
+    button{width:100%}
+    .privacy-note{font-size:12px;color:var(--text);margin-top:8px}
+
+    footer{background:#08233b;color:white;position:relative;overflow:hidden;padding:38px 24px;text-align:center}
+    .footer-inner{max-width:1100px;margin:auto;position:relative;z-index:2}
+    .footer-candle{
+      position:absolute;
+      right:0;
+      bottom:0;
+      width:270px;
+      height:150px;
+      background:linear-gradient(90deg,rgba(8,35,59,.2),rgba(8,35,59,.15)),url('https://images.unsplash.com/photo-1602874801006-e26a9e49a537?auto=format&fit=crop&w=900&q=80');
+      background-size:cover;
+      background-position:center;
+      opacity:.88;
+      border-top-left-radius:30px;
+    }
+    .footer-brand{display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:12px}
+    .footer-brand img{width:58px;height:50px;object-fit:contain;background:transparent;border:none}
+    footer em,footer p,footer a{color:#dce9f5}
+    .footer-quote{font-family:'Cormorant Garamond',serif;font-size:28px;margin:14px auto 10px;max-width:760px}
+    .disclaimer{font-size:12px;color:#dce9f5;margin-top:10px;max-width:850px;margin-left:auto;margin-right:auto}
+
+    @media(max-width:980px){
+      .nav{flex-direction:column;align-items:flex-start}
+      .nav-links{gap:12px}
+      .cards,.grid,.value-row,.split,.promise-grid{grid-template-columns:1fr}
+      .trust{margin:0 18px}
+      .hero{min-height:auto;background-position:center}
+      .footer-candle{opacity:.28;width:220px;height:130px}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="logo.png" alt="Candle Grove Home Care logo">
+      <div>
+        <h1>Candle Grove<br>Home Care</h1>
+        <p>Where Care Feels Like Home</p>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#collection">Collection</a><a href="#resources">Resources</a><a href="#careers">Careers</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="top-btn" href="#contact">Begin Your Care Journey</a>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">Serving Northeast Ohio</div>
+      <h2>Where Care<br>Feels Like Home</h2>
+      <div class="divider"></div>
+      <p>Compassionate, personalized non-medical home care that helps individuals live safely, comfortably, and confidently in the place they know best—home.</p>
+      <a class="btn" href="#contact">Begin Your Care Journey</a>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <h3>Proudly Serving Individuals and Families Throughout Northeast Ohio</h3>
+  <p>Dependable, compassionate non-medical home care designed around dignity, comfort, and peace of mind.</p>
+</div>
+
+<section class="about" id="about">
+  <div class="container split">
+    <div class="about-img"></div>
+    <div>
+      <div class="eyebrow">About Candle Grove</div>
+      <h2>Exceptional care begins with genuine human connection.</h2>
+      <p>At Candle Grove Home Care, we believe exceptional care begins with genuine human connection. Our organization was founded on a simple promise: to provide dependable, compassionate support that helps individuals live with dignity, confidence, and peace of mind.</p>
+      <p>Every service we offer is guided by professionalism, personalized attention, and an unwavering commitment to enriching the lives of those we serve.</p>
+      <p>Like the steady glow of a candle, we believe compassionate care brings comfort, guidance, and hope to every home we serve.</p>
+      <div class="eyebrow" style="margin-top:20px;">Our Mission</div>
+      <p>To provide dependable, compassionate, non-medical home services that help clients stay safely and comfortably in the place they know best—home.</p>
+    </div>
+  </div>
+</section>
+
+<section class="serve">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Who We Serve</div>
+      <h2>Support for every family journey.</h2>
+      <p>Candle Grove proudly serves individuals and families from all backgrounds, cultures, and communities throughout Northeast Ohio.</p>
+    </div>
+    <div class="grid">
+      <div class="box"><strong>Seniors Aging at Home</strong><p>Support for individuals who want to remain safe, independent, and comfortable at home.</p></div>
+      <div class="box"><strong>Family Caregivers</strong><p>Respite and dependable assistance for families balancing care, work, and everyday life.</p></div>
+      <div class="box"><strong>Veterans and Loved Ones</strong><p>Guidance and support for eligible veterans and families exploring available home care resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Our Services</div>
+      <h2>Care designed around everyday life.</h2>
+      <p>Support at home for families who want dependable caregivers, flexible scheduling, and peace of mind.</p>
+      <p>Every care journey is unique. At Candle Grove Home Care, we provide personalized, non-medical support with compassion, professionalism, and respect—helping individuals remain safe, comfortable, and confident in the place they cherish most: home.</p>
+    </div>
+    <div class="grid">
+      <div class="box"><strong>Transportation</strong><span>Appointments, errands, grocery shopping, pharmacy trips, and community outings.</span></div>
+      <div class="box"><strong>Personal Care</strong><span>Bathing, dressing, grooming, hygiene support, and respectful assistance.</span></div>
+      <div class="box"><strong>Companionship</strong><span>Meaningful conversation, emotional support, and social engagement.</span></div>
+      <div class="box"><strong>Meal Preparation</strong><span>Simple meals, hydration reminders, kitchen clean-up, and daily routines.</span></div>
+      <div class="box"><strong>Light Housekeeping</strong><span>Laundry, tidying, organizing, and a safe comfortable home environment.</span></div>
+      <div class="box"><strong>Medication Reminders</strong><span>Non-clinical reminders to help clients stay on schedule.</span></div>
+      <div class="box"><strong>Respite Care</strong><span>Relief for family caregivers who need time to rest, work, or recharge.</span></div>
+      <div class="box"><strong>Errands & Shopping</strong><span>Support with groceries, household needs, and prescription pickup.</span></div>
+      <div class="box"><strong>Aging-in-Place Support</strong><span>Personalized care plans that support independence and safety at home.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Why Choose Candle Grove</div>
+      <h2>Three simple promises.</h2>
+      <p>Families deserve care that feels dependable, personal, and reassuring from the very first conversation.</p>
+    </div>
+    <div class="promise-grid">
+      <div class="promise-card"><h3>Personalized Care</h3><p>Every care plan is thoughtfully tailored to the unique needs, preferences, and goals of the individual and their family.</p></div>
+      <div class="promise-card"><h3>Dependable Caregivers</h3><p>Our caregivers are selected for their compassion, professionalism, integrity, and dedication to providing reliable support.</p></div>
+      <div class="promise-card"><h3>Peace of Mind</h3><p>We believe families deserve reassurance, clear communication, and trusted support throughout every care journey.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="collection" id="collection">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The Candle Grove Collection</div>
+      <h2>Four connected solutions. One trusted name.</h2>
+      <p>Supporting individuals, empowering professionals, strengthening families, and enriching our community.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <h3>Candle Grove Home Care</h3>
+          <div class="subtitle">Personalized support for everyday living.</div>
+          <p>Thoughtful non-medical home care tailored to each client and family.</p>
+          <ul><li>Personal care</li><li>Companionship</li><li>Meal preparation</li><li>Transportation</li><li>Respite care</li></ul>
+          <a href="#services">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img fingerprint-photo"></div>
+        <div class="card-body">
+          <h3>Candle Grove Workforce Solutions</h3>
+          <div class="subtitle">Professional fingerprinting, background screening, and workforce support.</div>
+          <p>Planned fingerprinting, screening, onboarding, and compliance support for employers and professionals.</p>
+          <ul><li>Electronic fingerprinting</li><li>Ohio BCI and FBI support</li><li>Employment screening</li><li>Caregiver onboarding</li><li>Identity verification</li><li>Compliance guidance</li></ul>
+          <a href="#contact">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <h3>Candle Grove Education</h3>
+          <div class="subtitle">Learning that empowers compassionate care.</div>
+          <p>Training and development for caregivers, families, and community partners.</p>
+          <ul><li>Caregiver orientation</li><li>Dementia education</li><li>Communication training</li><li>Safety education</li><li>CPR and First Aid education</li></ul>
+          <a href="#contact">Learn More →</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80')"></div>
+        <div class="card-body">
+          <h3>Candle Grove Consulting</h3>
+          <div class="subtitle">Trusted guidance for important decisions.</div>
+          <p>Care planning and guidance for families, caregivers, and organizations.</p>
+          <ul><li>Care planning</li><li>Family consultations</li><li>Veterans information</li><li>Long-term care insurance guidance</li><li>Operational support</li></ul>
+          <a href="#contact">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">The Candle Grove Difference</div>
+      <h2>Warmth, dignity, and trusted support.</h2>
+    </div>
+    <div class="value-row">
+      <div class="value"><div class="value-img" style="background-image:url('https://images.unsplash.com/photo-1576765607924-0a6d4e9c3336?auto=format&fit=crop&w=900&q=80')"></div><div class="value-body"><h3>Our Commitment</h3><p>We treat every client like family and every home like our own.</p></div></div>
+      <div class="value"><div class="value-img" style="background-image:url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80')"></div><div class="value-body"><h3>Our Promise</h3><p>Compassionate care delivered with dignity, respect, and heart.</p></div></div>
+      <div class="value"><div class="value-img" style="background-image:url('https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80')"></div><div class="value-body"><h3>Our Community</h3><p>Serving families from all backgrounds, cultures, and communities throughout Northeast Ohio.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="resources" id="resources">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Resources & Payment Support</div>
+      <h2>Flexible care options for families.</h2>
+      <p>Candle Grove currently focuses on Private Pay, Long-Term Care Insurance support, and veterans-related funding options when available. We are preparing for future Ohio Medicaid and PASSPORT waiver provider participation as our agency grows.</p>
+    </div>
+    <div class="grid">
+      <div class="box"><strong>Private Pay</strong><p>Flexible scheduling for families who want dependable support designed around everyday life.</p></div>
+      <div class="box"><strong>Long-Term Care Insurance</strong><p>Guidance for families reviewing benefits, documentation, and care options.</p></div>
+      <div class="box"><strong>Veterans Support</strong><p>Information for eligible veterans and families exploring available care resources.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="foundation">
+  <div class="container">
+    <div class="foundation-box">
+      <div class="eyebrow">Future Vision</div>
+      <h2>Candle Grove Foundation</h2>
+      <p>Our long-term vision includes establishing the Candle Grove Foundation to expand community outreach through scholarships, educational initiatives, senior wellness programs, veteran support efforts, volunteer opportunities, and meaningful partnerships that improve lives across Northeast Ohio.</p>
+    </div>
+  </div>
+</section>
+
+<section class="careers" id="careers">
+  <div class="container split">
+    <div>
+      <h2>When we care for others, we make a brighter tomorrow.</h2>
+      <p>Candle Grove is seeking dependable caregivers who believe in showing up with kindness, professionalism, and respect.</p>
+      <a class="btn" href="#contact">Begin Your Care Journey</a>
+    </div>
+    <div class="careers-photo"></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container split">
+    <div>
+      <div class="eyebrow">Let’s Start the Conversation</div>
+      <h2>Begin your care journey.</h2>
+      <p>Every family’s journey is unique. Whether you are planning ahead, seeking immediate support, or simply exploring your options, our team is here to listen and help you find the care that feels right.</p>
+      <p><strong>Serving:</strong> Northeast Ohio</p>
+      <p><strong>Email:</strong> <a href="mailto:info@candlegrovehomecare.com">info@candlegrovehomecare.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+12165280009">(216) 528-0009</a></p>
+    </div>
+    <div class="contact-box">
+      <form action="mailto:info@candlegrovehomecare.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <input type="email" name="email" placeholder="Email Address" required>
+        <select name="interest">
+          <option>I'm interested in home care services</option>
+          <option>I'm interested in caregiver employment</option>
+          <option>I'm interested in Workforce Solutions</option>
+          <option>I'm interested in Education</option>
+          <option>I'm interested in Consulting</option>
+          <option>I'm a referral partner</option>
+        </select>
+        <textarea name="message" placeholder="How can we help?"></textarea>
+        <button class="btn" type="submit">Submit Inquiry</button>
+        <p class="privacy-note">Information submitted through this form is used only to respond to your inquiry.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="footer-candle"></div>
   <div class="footer-inner">
@@ -385,6 +758,11 @@
     <p>© 2026 Candle Grove Home Care. All rights reserved.</p>
   </div>
 </footer>
+
+</body>
+</html>
+```
+
 
 </body>
 </html>
