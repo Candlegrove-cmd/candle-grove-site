@@ -1,825 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Candle Grove Home Care | Where Care Feels Like Home</title>
-
-  <style>
-    :root {
-      --navy: #0b2545;
-      --blue: #1f6f9f;
-      --soft-blue: #eaf6fb;
-      --cream: #f8f3ea;
-      --gold: #c99a45;
-      --text: #1d2939;
-      --muted: #667085;
-      --white: #ffffff;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    header {
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid rgba(11,37,69,0.12);
-    }
-
-    .nav {
-      max-width: 1180px;
-      margin: auto;
-      padding: 18px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-mark {
-      width: 54px;
-      height: 54px;
-      background: var(--navy);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      box-shadow: 0 10px 25px rgba(11,37,69,0.18);
-    }
-
-    .logo-mark svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    .brand h1 {
-      font-size: 22px;
-      color: var(--navy);
-      line-height: 1.1;
-    }
-
-    .brand p {
-      font-size: 13px;
-      color: var(--gold);
-      font-style: italic;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      color: var(--navy);
-      font-weight: 600;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 22px;
-      border-radius: 999px;
-      background: var(--blue);
-      color: white;
-      font-family: Arial, sans-serif;
-      font-weight: 700;
-      box-shadow: 0 12px 25px rgba(31,111,159,0.22);
-    }
-
-    .btn.secondary {
-      background: white;
-      color: var(--navy);
-      border: 1px solid rgba(11,37,69,0.15);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 720px;
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(11,37,69,0.92), rgba(11,37,69,0.62), rgba(11,37,69,0.12)),
-        url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      bottom: -80px;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: rgba(201,154,69,0.18);
-      filter: blur(2px);
-    }
-
-    .hero-inner {
-      max-width: 1180px;
-      margin: auto;
-      padding: 80px 24px;
-      position: relative;
-      z-index: 2;
-      color: white;
-    }
-
-    .eyebrow {
-      font-family: Arial, sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
-      color: #f6d28f;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
-
-    .hero h2 {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.04;
-      max-width: 760px;
-      margin-bottom: 24px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      font-size: 20px;
-      color: rgba(255,255,255,0.9);
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-bottom: 34px;
-    }
-
-    .trust-points {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(180px, 1fr));
-      max-width: 860px;
-      gap: 14px;
-    }
-
-    .trust-card {
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 20px;
-      padding: 18px;
-      backdrop-filter: blur(10px);
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-    }
-
-    section {
-      padding: 90px 24px;
-    }
-
-    .container {
-      max-width: 1180px;
-      margin: auto;
-    }
-
-    .section-title {
-      max-width: 760px;
-      margin-bottom: 42px;
-    }
-
-    .section-title span {
-      color: var(--blue);
-      font-family: Arial, sans-serif;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-size: 13px;
-    }
-
-    .section-title h2 {
-      color: var(--navy);
-      font-size: clamp(34px, 4vw, 52px);
-      line-height: 1.08;
-      margin: 12px 0;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      font-size: 18px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 28px;
-      padding: 30px;
-      box-shadow: 0 20px 45px rgba(11,37,69,0.08);
-      border: 1px solid rgba(11,37,69,0.08);
-    }
-
-    .card h3 {
-      color: var(--navy);
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-      font-family: Arial, sans-serif;
-      font-size: 15.5px;
-    }
-
-    .icon {
-      width: 50px;
-      height: 50px;
-      border-radius: 18px;
-      background: var(--soft-blue);
-      color: var(--blue);
-      display: grid;
-      place-items: center;
-      margin-bottom: 18px;
-      font-size: 24px;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .photo-card {
-      min-height: 520px;
-      border-radius: 38px;
-      background:
-        linear-gradient(rgba(11,37,69,0.08), rgba(11,37,69,0.2)),
-        url("https://images.unsplash.com/photo-1581579438747-104c53d7fbc4?auto=format&fit=crop&w=1200&q=80");
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 25px 55px rgba(11,37,69,0.18);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .photo-card .caption {
-      position: absolute;
-      bottom: 24px;
-      left: 24px;
-      right: 24px;
-      background: rgba(255,255,255,0.86);
-      border-radius: 24px;
-      padding: 22px;
-      color: var(--navy);
-      backdrop-filter: blur(10px);
-    }
-
-    .blue-panel {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
-      color: white;
-      border-radius: 38px;
-      padding: 46px;
-      box-shadow: 0 25px 60px rgba(11,37,69,0.22);
-    }
-
-    .blue-panel h2 {
-      font-size: 42px;
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-
-    .blue-panel p {
-      color: rgba(255,255,255,0.88);
-      font-family: Arial, sans-serif;
-      margin-bottom: 18px;
-    }
-
-    .notice {
-      background: #fff8ea;
-      border: 1px solid rgba(201,154,69,0.35);
-      border-left: 6px solid var(--gold);
-      border-radius: 24px;
-      padding: 28px;
-      margin-top: 26px;
-    }
-
-    .notice h3 {
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .notice p {
-      color: #6b4e16;
-      font-family: Arial, sans-serif;
-    }
-
-    .service-list {
-      list-style: none;
-      display: grid;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    .service-list li {
-      padding-left: 28px;
-      position: relative;
-    }
-
-    .service-list li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-      font-weight: bold;
-    }
-
-    .referral {
-      background:
-        linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.92)),
-        url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-    }
-
-    .faq-item {
-      background: white;
-      padding: 26px;
-      border-radius: 24px;
-      margin-bottom: 14px;
-      border: 1px solid rgba(11,37,69,0.08);
-      box-shadow: 0 12px 30px rgba(11,37,69,0.06);
-    }
-
-    .faq-item h3 {
-      color: var(--navy);
-      margin-bottom: 8px;
-      font-size: 21px;
-    }
-
-    .faq-item p {
-      color: var(--muted);
-      font-family: Arial, sans-serif;
-    }
-
-    .contact {
-      background: var(--navy);
-      color: white;
-    }
-
-    .contact .card {
-      color: var(--text);
-    }
-
-    form {
-      display: grid;
-      gap: 14px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 15px 17px;
-      border-radius: 16px;
-      border: 1px solid #d0d5dd;
-      font-size: 15px;
-      font-family: Arial, sans-serif;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    button {
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    footer {
-      background: #071a31;
-      color: rgba(255,255,255,0.78);
-      padding: 36px 24px;
-      font-family: Arial, sans-serif;
-    }
-
-    .footer-inner {
-      max-width: 1180px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 900px) {
-      nav ul {
-        display: none;
-      }
-
-      .grid-3,
-      .split,
-      .trust-points {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        min-height: auto;
-      }
-
-      .hero h2 {
-        font-size: 44px;
-      }
-
-      .blue-panel {
-        padding: 32px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="nav">
-    <div class="brand">
-      <div class="logo-mark">
-        <svg viewBox="0 0 64 64" fill="none">
-          <path d="M32 7C27 13 25 17 25 22C25 27 28 31 32 31C36 31 39 27 39 22C39 17 37 13 32 7Z" fill="#f6d28f"/>
-          <path d="M19 50C22 42 27 38 32 38C37 38 42 42 45 50" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-          <path d="M16 36C21 39 26 41 32 41C38 41 43 39 48 36" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-          <path d="M32 31V48" stroke="#f6d28f" stroke-width="3" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div>
-        <h1>Candle Grove Home Care</h1>
-        <p>Where Care Feels Like Home</p>
-      </div>
-    </div>
-
-    <nav>
-      <ul>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#privatepay">Private Pay</a></li>
-        <li><a href="#medicaid">Medicaid & PASSPORT</a></li>
-        <li><a href="#referrals">Referrals</a></li>
-        <li><a href="#careers">Careers</a></li>
-      </ul>
-    </nav>
-
-    <a class="btn" href="#contact">Contact Us</a>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Serving Northeast Ohio</div>
-    <h2>Trusted, compassionate home care that feels warm, personal, and dependable.</h2>
-    <p>
-      Candle Grove Home Care provides non-medical support for seniors and adults who need help at home while maintaining dignity, comfort, and independence.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#contact" class="btn">Request Care</a>
-      <a href="#careers" class="btn secondary">Apply as a Caregiver</a>
-    </div>
-
-    <div class="trust-points">
-      <div class="trust-card">Personalized non-medical support at home</div>
-      <div class="trust-card">Professional communication for families and referral partners</div>
-      <div class="trust-card">Reliable care built on dignity, trust, and compassion</div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="section-title">
-      <span>Our Services</span>
-      <h2>Support for daily living, comfort, and peace of mind.</h2>
-      <p>
-        We provide practical, non-skilled home care services designed to help clients remain safe, supported, and comfortable at home.
+<section id="candle-grove-divisions" style="padding:80px 20px;background:#f7f9fb;">
+  <div style="max-width:1200px;margin:0 auto;">
+
+    <div style="text-align:center;margin-bottom:55px;">
+      <p style="color:#6b8aa6;letter-spacing:2px;text-transform:uppercase;font-size:14px;font-weight:700;">
+        The Candle Grove Family of Services
       </p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <div class="icon">🛁</div>
-        <h3>Personal Care</h3>
-        <p>Bathing, grooming, dressing, toileting assistance, mobility support, and dignity-focused daily care.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🤝</div>
-        <h3>Companionship</h3>
-        <p>Conversation, emotional support, supervision, social engagement, and meaningful connection at home.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🚗</div>
-        <h3>Transportation</h3>
-        <p>Transportation support for appointments, errands, grocery runs, community outings, and essential needs.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🧺</div>
-        <h3>Light Housekeeping</h3>
-        <p>Laundry, dishes, tidying, linen changes, and light household support to maintain a safe environment.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🍲</div>
-        <h3>Meal Preparation</h3>
-        <p>Meal planning, simple meal preparation, hydration reminders, and support around daily nutrition routines.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">⏰</div>
-        <h3>Medication Reminders</h3>
-        <p>Friendly reminders to help clients stay on schedule with medications as directed by their provider.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🛍️</div>
-        <h3>Errands & Shopping</h3>
-        <p>Assistance with grocery shopping, pharmacy pickups, mail, household supplies, and routine errands.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🌿</div>
-        <h3>Respite Care</h3>
-        <p>Relief for family caregivers who need time to rest, work, travel, or handle personal responsibilities.</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🏡</div>
-        <h3>Home Support</h3>
-        <p>Non-medical support that helps clients remain independent, comfortable, and cared for in their own home.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="privatepay">
-  <div class="container split">
-    <div class="photo-card">
-      <div class="caption">
-        <strong>Private Pay Care Available</strong>
-        <p>Flexible support for families who need dependable care now.</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="section-title">
-        <span>Private Pay Clients</span>
-        <h2>We currently welcome private-pay clients.</h2>
-        <p>
-          Candle Grove Home Care is available for families seeking reliable non-medical support without waiting for waiver or insurance approval.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Private Pay Services May Include:</h3>
-        <ul class="service-list">
-          <li>Personal care and hygiene support</li>
-          <li>Companion care and supervision</li>
-          <li>Transportation and errands</li>
-          <li>Meal preparation</li>
-          <li>Light housekeeping and laundry</li>
-          <li>Respite care for family caregivers</li>
-          <li>Medication reminders</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="medicaid">
-  <div class="container">
-    <div class="blue-panel">
-      <div class="eyebrow">Ohio Medicaid & PASSPORT</div>
-      <h2>Preparing for future Ohio Medicaid and PASSPORT waiver participation.</h2>
-      <p>
-        Candle Grove Home Care is currently focused on serving private-pay clients while preparing for future Ohio Medicaid and PASSPORT waiver provider participation as our agency grows.
-      </p>
-      <p>
-        We do not want to misrepresent our current status. At this time, we are not presenting ourselves as an active Medicaid or PASSPORT provider. We are building the agency foundation, policies, systems, and referral relationships needed for future participation.
-      </p>
-
-      <div class="notice">
-        <h3>Current Status</h3>
-        <p>
-          Private-pay clients are currently welcome. Medicaid and PASSPORT waiver participation is a future goal as Candle Grove Home Care continues to grow.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="referrals" class="referral">
-  <div class="container">
-    <div class="section-title">
-      <span>Referral-Friendly Communication</span>
-      <h2>We welcome conversations with families, hospitals, social workers, and community partners.</h2>
-      <p>
-        Candle Grove Home Care is built to communicate clearly, respond professionally, and support families through the care decision process.
-      </p>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3>Families</h3>
-        <p>We help families understand available care options and build support around their loved one’s daily needs.</p>
-      </div>
-
-      <div class="card">
-        <h3>Hospitals</h3>
-        <p>We welcome discharge-related conversations for clients who may need non-medical support at home.</p>
-      </div>
-
-      <div class="card">
-        <h3>Social Workers</h3>
-        <p>We aim to be a dependable community resource for clients needing private-pay home care support.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="container">
-    <div class="section-title">
-      <span>Why Choose Us</span>
-      <h2>Care rooted in warmth, trust, and professional communication.</h2>
-    </div>
-
-    <div class="grid-3">
-      <div class="card">
-        <h3>Personalized Support</h3>
-        <p>Every client deserves care that reflects their routine, preferences, comfort level, and family goals.</p>
-      </div>
-
-      <div class="card">
-        <h3>Reliable Scheduling</h3>
-        <p>We understand that families need consistency, communication, and dependable support they can trust.</p>
-      </div>
-
-      <div class="card">
-        <h3>Professional Presentation</h3>
-        <p>We communicate with families and referral partners in a respectful, organized, and responsive way.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="careers">
-  <div class="container split">
-    <div>
-      <div class="section-title">
-        <span>Careers</span>
-        <h2>Caregivers can apply to join Candle Grove Home Care.</h2>
-        <p>
-          We welcome compassionate caregivers who believe in dignity, patience, dependability, and respectful support.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Caregiver Qualities We Value</h3>
-        <ul class="service-list">
-          <li>Compassion and patience</li>
-          <li>Reliable communication</li>
-          <li>Respect for client dignity</li>
-          <li>Professional appearance and attitude</li>
-          <li>Experience supporting seniors or adults at home</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Caregiver Application</h3>
-      <p style="margin-bottom:18px;">
-        Replace the email below with your real hiring email.
-      </p>
-
-      <form action="mailto:careers@candlegrovehomecare.com" method="post" enctype="text/plain">
-        <input type="text" name="Full Name" placeholder="Full Name" required />
-        <input type="tel" name="Phone" placeholder="Phone Number" required />
-        <input type="email" name="Email" placeholder="Email Address" required />
-        <input type="text" name="City" placeholder="City / Service Area" />
-        <textarea name="Experience" placeholder="Tell us about your caregiving experience"></textarea>
-        <button class="btn" type="submit">Send Application</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="container">
-    <div class="section-title">
-      <span>FAQ</span>
-      <h2>Common questions families may ask.</h2>
-    </div>
-
-    <div class="faq-item">
-      <h3>Do you provide medical care?</h3>
-      <p>No. Candle Grove Home Care provides non-medical home care support. We do not provide skilled nursing or medical treatment.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Do you accept private-pay clients?</h3>
-      <p>Yes. We currently welcome private-pay clients who need non-medical home care support.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>Are you currently a Medicaid or PASSPORT provider?</h3>
-      <p>Not at this time. We are preparing for future Ohio Medicaid and PASSPORT waiver provider participation as our agency grows.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>What areas do you serve?</h3>
-      <p>We are focused on serving Northeast Ohio. You can update this section with your exact cities and counties.</p>
-    </div>
-
-    <div class="faq-item">
-      <h3>How do families get started?</h3>
-      <p>Families can call, email, or complete the contact form to discuss care needs, scheduling, and service options.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="container split">
-    <div>
-      <div class="eyebrow">Contact Candle Grove</div>
-      <h2 style="font-size:44px; line-height:1.1; margin-bottom:18px;">
-        Let’s talk about care that feels like home.
+      <h2 style="font-size:42px;color:#12395b;margin:10px 0 18px;">
+        One Trusted Name. Multiple Ways to Serve.
       </h2>
-      <p style="color:rgba(255,255,255,0.82); font-family:Arial,sans-serif; margin-bottom:22px;">
-        We welcome calls from families, referral partners, hospitals, social workers, and caregivers interested in joining our team.
+      <p style="max-width:850px;margin:0 auto;color:#555;font-size:19px;line-height:1.8;">
+        Candle Grove is building a connected family of services designed to support families,
+        caregivers, employers, professionals, and the community through compassionate care,
+        workforce solutions, education, consulting, and future outreach initiatives.
       </p>
-
-      <p><strong>Phone:</strong> (216) 555-0100</p>
-      <p><strong>Email:</strong> info@candlegrovehomecare.com</p>
-      <p><strong>Referral Email:</strong> referrals@candlegrovehomecare.com</p>
-      <p><strong>Service Area:</strong> Northeast Ohio</p>
     </div>
 
-    <div class="card">
-      <h3>Request Information</h3>
-      <form action="mailto:info@candlegrovehomecare.com" method="post" enctype="text/plain">
-        <input type="text" name="Full Name" placeholder="Full Name" required />
-        <input type="tel" name="Phone" placeholder="Phone Number" required />
-        <input type="email" name="Email" placeholder="Email Address" />
-        <select name="Reason">
-          <option>Private Pay Care</option>
-          <option>Family Inquiry</option>
-          <option>Hospital / Social Worker Referral</option>
-          <option>Caregiver Application</option>
-          <option>General Question</option>
-        </select>
-        <textarea name="Message" placeholder="Tell us how we can help"></textarea>
-        <button class="btn" type="submit">Send Message</button>
-      </form>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;">
+
+      <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 12px 30px rgba(18,57,91,.08);border-top:5px solid #12395b;">
+        <h3 style="color:#12395b;font-size:26px;margin-bottom:12px;">Candle Grove Home Care</h3>
+        <p style="color:#555;line-height:1.8;">
+          Dependable, compassionate non-medical home care that helps individuals remain safe,
+          comfortable, and independent at home.
+        </p>
+        <ul style="color:#555;line-height:1.9;padding-left:20px;">
+          <li>Personal care assistance</li>
+          <li>Bathing and hygiene support</li>
+          <li>Companionship</li>
+          <li>Meal preparation</li>
+          <li>Medication reminders</li>
+          <li>Light housekeeping and laundry</li>
+          <li>Transportation and errands</li>
+          <li>Respite care</li>
+          <li>Private Pay, LTC insurance, and veterans-related support</li>
+        </ul>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 12px 30px rgba(18,57,91,.08);border-top:5px solid #6b8aa6;">
+        <h3 style="color:#12395b;font-size:26px;margin-bottom:12px;">Candle Grove Workforce Solutions</h3>
+        <p style="color:#555;line-height:1.8;">
+          Workforce and employment support designed to help employers, professionals,
+          and caregivers complete hiring requirements with confidence.
+        </p>
+        <ul style="color:#555;line-height:1.9;padding-left:20px;">
+          <li>Electronic fingerprinting</li>
+          <li>Ohio BCI background check support</li>
+          <li>FBI fingerprint check support</li>
+          <li>Employment screening assistance</li>
+          <li>Caregiver onboarding</li>
+          <li>Identity verification</li>
+          <li>Hiring documentation guidance</li>
+          <li>Compliance-focused workforce support</li>
+        </ul>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 12px 30px rgba(18,57,91,.08);border-top:5px solid #9ab3c9;">
+        <h3 style="color:#12395b;font-size:26px;margin-bottom:12px;">Candle Grove Education</h3>
+        <p style="color:#555;line-height:1.8;">
+          Educational resources and training opportunities created to strengthen caregivers,
+          support families, and improve care experiences.
+        </p>
+        <ul style="color:#555;line-height:1.9;padding-left:20px;">
+          <li>Caregiver orientation</li>
+          <li>Dementia and Alzheimer's education</li>
+          <li>Communication training</li>
+          <li>Safety and infection prevention</li>
+          <li>Family caregiver workshops</li>
+          <li>Community wellness education</li>
+          <li>CPR and First Aid resource referrals</li>
+          <li>Continuing education opportunities</li>
+        </ul>
+      </div>
+
+      <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 12px 30px rgba(18,57,91,.08);border-top:5px solid #d8b56d;">
+        <h3 style="color:#12395b;font-size:26px;margin-bottom:12px;">Candle Grove Consulting</h3>
+        <p style="color:#555;line-height:1.8;">
+          Practical guidance for families and organizations navigating care decisions,
+          planning, workforce needs, and community resources.
+        </p>
+        <ul style="color:#555;line-height:1.9;padding-left:20px;">
+          <li>Home care planning</li>
+          <li>Family consultations</li>
+          <li>Long-term care planning discussions</li>
+          <li>Veterans benefit education</li>
+          <li>Long-term care insurance guidance</li>
+          <li>Community resource referrals</li>
+          <li>Caregiver recruitment consulting</li>
+          <li>Operational support for growing agencies</li>
+        </ul>
+      </div>
+
     </div>
+
+    <div style="margin-top:34px;background:#12395b;color:#fff;border-radius:24px;padding:42px;box-shadow:0 12px 30px rgba(18,57,91,.18);">
+      <h3 style="font-size:30px;margin-bottom:14px;">Candle Grove Foundation <span style="font-size:18px;font-weight:400;">Future Vision</span></h3>
+      <p style="font-size:18px;line-height:1.8;max-width:900px;">
+        As Candle Grove grows, our future vision includes community outreach designed to support
+        seniors, caregivers, veterans, and families through education, wellness initiatives,
+        resource assistance, and meaningful partnerships.
+      </p>
+    </div>
+
   </div>
 </section>
-
-<footer>
-  <div class="footer-inner">
-    <div>
-      <strong>Candle Grove Home Care</strong><br />
-      Where Care Feels Like Home
-    </div>
-    <div>
-      © 2026 Candle Grove Home Care. All rights reserved.
-    </div>
-  </div>
-</footer>
-
-</body>
-</html>
