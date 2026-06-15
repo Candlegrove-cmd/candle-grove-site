@@ -1,311 +1,380 @@
-export default function CandleGroveWebsite() {
-  const services = [
-    {
-      title: "Personal Care Assistance",
-      description:
-        "Support with bathing, grooming, dressing, toileting, and daily routines delivered with dignity and respect.",
-    },
-    {
-      title: "Companion Care",
-      description:
-        "Meaningful companionship, conversation, meal support, light housekeeping, and help reducing loneliness.",
-    },
-    {
-      title: "Respite Care",
-      description:
-        "Reliable relief for family caregivers who need time to rest, recharge, or manage other responsibilities.",
-    },
-    {
-      title: "Homemaker Services",
-      description:
-        "Help with laundry, meal preparation, organization, errands, and maintaining a safe, comfortable home.",
-    },
-    {
-      title: "Transportation & Escort",
-      description:
-        "Assistance getting to appointments, errands, community activities, and other essential outings.",
-    },
-    {
-      title: "Customized Care Plans",
-      description:
-        "Flexible support plans tailored to each client’s needs, preferences, routines, and family goals.",
-    },
-  ];
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candle Grove Home Care</title>
 
-  const highlights = [
-    "Compassionate, dependable caregivers",
-    "Flexible scheduling for families",
-    "Client-centered care plans",
-    "Comfort-focused in-home support",
-  ];
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-  const faqs = [
-    {
-      q: "What services does Candle Grove provide?",
-      a: "Candle Grove Home Care Services provides non-medical in-home support such as personal care assistance, companion care, respite care, homemaker services, and transportation support.",
-    },
-    {
-      q: "Who do you serve?",
-      a: "We support seniors, adults with disabilities, individuals recovering at home, and families who need dependable daily living assistance for a loved one.",
-    },
-    {
-      q: "How do I get started?",
-      a: "Call, email, or complete the contact form to schedule a consultation. We will discuss your needs, answer questions, and help build a care plan that fits your family.",
-    },
-  ];
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:#fbfaf7;color:#10263d;line-height:1.7}
+    :root{--navy:#12395b;--gold:#b28a4a;--ivory:#fbfaf7;--soft:#f4f7fa;--text:#5f6772}
+    a{text-decoration:none;color:inherit}
+    img{width:100%;display:block}
 
-  return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <div>
-            <div className="text-2xl font-bold tracking-tight text-sky-900">Candle Grove</div>
-            <div className="text-sm text-slate-500">Home Care Services</div>
-          </div>
-          <nav className="hidden gap-6 text-sm font-medium md:flex">
-            <a href="#about" className="hover:text-sky-700">About</a>
-            <a href="#services" className="hover:text-sky-700">Services</a>
-            <a href="#why-us" className="hover:text-sky-700">Why Choose Us</a>
-            <a href="#faq" className="hover:text-sky-700">FAQ</a>
-            <a href="#contact" className="hover:text-sky-700">Contact</a>
-          </nav>
-          <a
-            href="#contact"
-            className="rounded-2xl bg-sky-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800"
-          >
-            Schedule a Consultation
-          </a>
-        </div>
-      </header>
+    header{background:#fff;position:sticky;top:0;z-index:999;border-bottom:1px solid rgba(18,57,91,.08)}
+    .nav{max-width:1280px;margin:auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo-mark{width:58px;height:58px}
+    .logo-text strong{font-family:'Playfair Display',serif;font-size:30px;color:var(--navy);letter-spacing:1px}
+    .logo-text span{display:block;color:var(--gold);letter-spacing:5px;font-size:14px;font-weight:700;text-align:center}
+    nav{display:flex;gap:24px;align-items:center;flex-wrap:wrap;font-weight:700;color:var(--navy);font-size:14px}
+    .top-btn,.btn{background:var(--gold);color:white;padding:14px 24px;border-radius:8px;font-weight:800;display:inline-block}
+    .btn-navy{background:var(--navy)}
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-sky-950 via-sky-900 to-sky-700 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(255,255,255,0.12),transparent_35%)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
-          <div className="flex flex-col justify-center">
-            <div className="mb-4 inline-flex w-fit rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-medium text-sky-100">
-              Compassionate Non-Medical In-Home Care
-            </div>
-            <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-              Where Care Feels Like Home.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-sky-100">
-              Candle Grove Home Care Services provides dependable, heart-centered support that helps clients remain safe,
-              comfortable, and independent in the place they know best — home.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="rounded-2xl bg-white px-6 py-3 font-semibold text-sky-900 shadow-lg transition hover:bg-sky-50"
-              >
-                Start Care Today
-              </a>
-              <a
-                href="#services"
-                className="rounded-2xl border border-white/30 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
-              >
-                View Services
-              </a>
-            </div>
-            <div className="mt-10 grid gap-3 sm:grid-cols-2">
-              {highlights.map((item) => (
-                <div key={item} className="rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-sky-50">
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+    .hero{background:linear-gradient(90deg,rgba(251,250,247,.96) 0%,rgba(251,250,247,.78) 38%,rgba(251,250,247,.15) 68%),url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center;padding:95px 28px}
+    .hero-inner{max-width:1280px;margin:auto}
+    .hero h1{font-family:'Playfair Display',serif;font-size:clamp(46px,6vw,78px);line-height:1.05;color:var(--navy);max-width:650px;margin-bottom:22px}
+    .hero p{font-size:21px;max-width:590px;color:#34495c;margin-bottom:30px}
 
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-xl rounded-[2rem] bg-white p-6 text-slate-900 shadow-2xl">
-              <div className="rounded-[1.5rem] bg-slate-100 p-8">
-                <div className="mb-6 rounded-2xl bg-sky-700 px-4 py-3 text-center text-white shadow">
-                  <div className="text-xl font-bold">Candle Grove Home Care Services</div>
-                  <div className="text-sm text-sky-100">Trusted care. Peace of mind. Support that feels like family.</div>
-                </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl bg-white p-4 shadow-sm">
-                    <div className="text-sm font-semibold text-slate-500">Phone</div>
-                    <div className="mt-1 text-base font-medium">(216) 555-0123</div>
-                  </div>
-                  <div className="rounded-2xl bg-white p-4 shadow-sm">
-                    <div className="text-sm font-semibold text-slate-500">Email</div>
-                    <div className="mt-1 text-base font-medium">hello@candlegrovecare.com</div>
-                  </div>
-                  <div className="rounded-2xl bg-white p-4 shadow-sm sm:col-span-2">
-                    <div className="text-sm font-semibold text-slate-500">Service Area</div>
-                    <div className="mt-1 text-base font-medium">Cuyahoga County and surrounding Ohio communities</div>
-                  </div>
-                </div>
-                <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-white p-4 text-sm text-slate-500">
-                  Plug-and-play note: replace the phone number, email, service area, and logo with your real business information before publishing.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    section{padding:85px 28px}
+    .container{max-width:1280px;margin:auto}
+    .eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-weight:800;font-size:13px}
+    .section-head{text-align:center;max-width:900px;margin:0 auto 50px}
+    .section-head h2{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,56px);color:var(--navy);margin:10px 0 16px}
+    .section-head p{color:var(--text);font-size:19px}
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">About Candle Grove</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Compassion, comfort, and dependable support for everyday living.
-            </h2>
-            <p className="mt-6 text-lg leading-8 text-slate-600">
-              Candle Grove Home Care Services is built on the belief that quality care begins with dignity, warmth, and trust.
-              Our mission is to support clients and families with dependable in-home care that promotes independence,
-              safety, and peace of mind.
-            </p>
-            <p className="mt-4 text-lg leading-8 text-slate-600">
-              Whether a loved one needs a few hours of weekly support or more consistent assistance, Candle Grove provides
-              compassionate care that meets people where they are — physically, emotionally, and personally.
-            </p>
-          </div>
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:26px}
+    .card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(18,57,91,.09);border:1px solid rgba(18,57,91,.08)}
+    .card img{height:210px;object-fit:cover}
+    .card-body{padding:26px}
+    .card h3{font-family:'Playfair Display',serif;color:var(--navy);font-size:28px;margin-bottom:10px}
+    .card p,.card li{color:var(--text);font-size:15.5px}
+    .card ul{padding-left:18px;margin-top:14px}
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-[2rem] bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <div className="text-sm font-semibold text-sky-700">Mission</div>
-              <p className="mt-3 text-slate-600">
-                To provide compassionate, high-quality home care services that help clients live with dignity, comfort, and confidence at home.
-              </p>
-            </div>
-            <div className="rounded-[2rem] bg-white p-6 shadow-sm ring-1 ring-slate-200">
-              <div className="text-sm font-semibold text-sky-700">Vision</div>
-              <p className="mt-3 text-slate-600">
-                To be a trusted home care partner known for warmth, reliability, and care that feels like family.
-              </p>
-            </div>
-            <div className="rounded-[2rem] bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:col-span-2">
-              <div className="text-sm font-semibold text-sky-700">Core Values</div>
-              <p className="mt-3 text-slate-600">
-                Compassion, dignity, respect, integrity, reliability, and client-centered service.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:stretch}
+    .feature{background:white;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(18,57,91,.09)}
+    .feature img{height:100%;object-fit:cover}
+    .feature-text{padding:36px}
+    .feature h2{font-family:'Playfair Display',serif;color:var(--navy);font-size:38px;margin-bottom:14px}
+    .feature p{color:var(--text)}
 
-      <section id="services" className="bg-white py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">Our Services</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-              Flexible in-home care designed around each client’s needs.
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Candle Grove provides non-medical home care services that promote comfort, safety, and independence.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <div key={service.title} className="rounded-[2rem] bg-slate-50 p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
-                <h3 className="text-xl font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{service.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .soft{background:linear-gradient(180deg,#fbfaf7 0%,#f4f7fa 100%)}
+    .careers{background:#eef5fb;border-radius:18px;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;align-items:center}
+    .careers div{padding:42px}
+    .careers h2{font-family:'Playfair Display',serif;color:var(--navy);font-size:42px}
+    .careers p{color:var(--text);margin:12px 0 24px}
+    .careers img{height:310px;object-fit:cover}
 
-      <section id="why-us" className="py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[2rem] bg-sky-900 p-8 text-white shadow-xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-200">Why Families Choose Candle Grove</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight">Care that is personal, dependable, and rooted in trust.</h2>
-              <ul className="mt-8 space-y-4 text-sky-50">
-                <li>• Warm, respectful approach to client care</li>
-                <li>• Flexible service plans tailored to changing needs</li>
-                <li>• Dependable support for seniors and families</li>
-                <li>• Focus on comfort, routine, and peace of mind at home</li>
-                <li>• Professional presentation with a welcoming, family-centered brand</li>
-              </ul>
-            </div>
-            <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">Service Area</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight text-slate-900">Serving Ohio families with compassionate in-home support.</h3>
-              <p className="mt-4 leading-8 text-slate-600">
-                This section is ready for your final service area language. You can list counties, cities, or regions here.
-                Example: Cuyahoga County, Lake County, Summit County, and surrounding communities.
-              </p>
-              <div className="mt-6 rounded-2xl bg-slate-50 p-4 text-slate-600 ring-1 ring-slate-200">
-                Pro tip: once your final service area is approved, replace this placeholder text with your exact coverage area.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+    .contact-box{background:white;padding:34px;border-radius:18px;box-shadow:0 14px 40px rgba(18,57,91,.09)}
+    input,select,textarea{width:100%;padding:14px;border:1px solid rgba(18,57,91,.18);border-radius:10px;margin-bottom:14px;font-family:inherit}
+    textarea{min-height:120px}
 
-      <section id="faq" className="bg-white py-20">
-        <div className="mx-auto max-w-4xl px-6 lg:px-8">
-          <div className="text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">FAQ</p>
-            <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Questions families often ask</h2>
-          </div>
-          <div className="mt-12 space-y-4">
-            {faqs.map((item) => (
-              <div key={item.q} className="rounded-[2rem] bg-slate-50 p-6 ring-1 ring-slate-200">
-                <h3 className="text-lg font-semibold text-slate-900">{item.q}</h3>
-                <p className="mt-3 leading-7 text-slate-600">{item.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    footer{background:#092a46;color:white;padding:46px 28px}
+    .footer-grid{max-width:1280px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:30px;align-items:start}
+    footer h4{color:#d8b56d;margin-bottom:12px;letter-spacing:1px}
+    footer p,footer a{color:#e7eef6;font-size:15px;display:block;margin-bottom:8px}
+    .social a{display:inline-block;background:var(--gold);color:white;padding:10px 14px;border-radius:999px;margin-right:8px;font-weight:800}
+    .copyright{text-align:center;border-top:1px solid rgba(255,255,255,.15);margin-top:32px;padding-top:18px;color:#d9e6f2}
 
-      <section id="contact" className="py-20">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-2">
-            <div className="rounded-[2rem] bg-white p-8 shadow-sm ring-1 ring-slate-200">
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-sky-700">Contact Us</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-900">Let’s talk about the care your family needs.</h2>
-              <p className="mt-4 leading-8 text-slate-600">
-                Reach out today to schedule a consultation and learn how Candle Grove can support your loved one at home.
-              </p>
-              <div className="mt-8 space-y-4 text-slate-700">
-                <div>
-                  <div className="text-sm font-semibold text-slate-500">Phone</div>
-                  <div className="text-lg">(216) 555-0123</div>
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-slate-500">Email</div>
-                  <div className="text-lg">hello@candlegrovecare.com</div>
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-slate-500">Office Hours</div>
-                  <div className="text-lg">Monday – Friday | 9:00 AM – 5:00 PM</div>
-                </div>
-              </div>
-            </div>
+    @media(max-width:850px){
+      .nav{flex-direction:column;align-items:flex-start}
+      nav{gap:14px}
+      .split,.careers,.contact-wrap,.footer-grid{grid-template-columns:1fr}
+      .hero{padding:75px 22px}
+      section{padding:65px 22px}
+    }
+  </style>
+</head>
 
-            <div className="rounded-[2rem] bg-sky-950 p-8 text-white shadow-xl">
-              <h3 className="text-2xl font-bold tracking-tight">Ready-to-edit inquiry form</h3>
-              <p className="mt-3 text-sky-100">
-                This is a front-end form layout you can connect to your email service, CRM, or website builder form handler.
-              </p>
-              <form className="mt-8 grid gap-4">
-                <input className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-sky-200 outline-none ring-0" placeholder="Full Name" />
-                <input className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-sky-200 outline-none ring-0" placeholder="Phone Number" />
-                <input className="rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-sky-200 outline-none ring-0" placeholder="Email Address" />
-                <textarea className="min-h-[140px] rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-white placeholder:text-sky-200 outline-none ring-0" placeholder="Tell us about your care needs" />
-                <button type="button" className="rounded-2xl bg-white px-6 py-3 font-semibold text-sky-950 transition hover:bg-sky-50">
-                  Submit Inquiry
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+<body>
 
-      <footer className="border-t border-slate-200 bg-white">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-8 text-sm text-slate-500 md:flex-row md:items-center md:justify-between lg:px-8">
-          <div>
-            <span className="font-semibold text-slate-700">Candle Grove Home Care Services</span> · Where Care Feels Like Home
-          </div>
-          <div>© 2026 Candle Grove. All rights reserved.</div>
-        </div>
-      </footer>
+<header>
+  <div class="nav">
+    <a class="logo" href="#home">
+      <svg class="logo-mark" viewBox="0 0 120 120" aria-label="Candle Grove logo">
+        <path d="M60 94 C47 76 43 55 60 38 C77 55 73 76 60 94Z" fill="#12395b"/>
+        <path d="M60 20 C50 34 51 48 60 57 C69 48 70 34 60 20Z" fill="#b28a4a"/>
+        <circle cx="60" cy="60" r="6" fill="#fbfaf7"/>
+        <g fill="#12395b">
+          <ellipse cx="30" cy="34" rx="8" ry="14" transform="rotate(-40 30 34)"/>
+          <ellipse cx="45" cy="24" rx="8" ry="14" transform="rotate(-20 45 24)"/>
+          <ellipse cx="75" cy="24" rx="8" ry="14" transform="rotate(20 75 24)"/>
+          <ellipse cx="90" cy="34" rx="8" ry="14" transform="rotate(40 90 34)"/>
+          <ellipse cx="22" cy="52" rx="8" ry="14" transform="rotate(-70 22 52)"/>
+          <ellipse cx="98" cy="52" rx="8" ry="14" transform="rotate(70 98 52)"/>
+          <ellipse cx="38" cy="54" rx="7" ry="12" transform="rotate(-40 38 54)"/>
+          <ellipse cx="82" cy="54" rx="7" ry="12" transform="rotate(40 82 54)"/>
+        </g>
+        <path d="M25 101 C42 93 78 93 95 101" stroke="#12395b" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <strong>Candle Grove</strong>
+        <span>HOME CARE</span>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#collection">Workforce Solutions</a>
+      <a href="#education">Education</a>
+      <a href="#consulting">Consulting</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+      <a class="top-btn" href="#contact">Begin Your Care Journey</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <h1>Where Care Feels Like Home</h1>
+    <p>Dependable, compassionate non-medical home care designed around dignity, comfort, and peace of mind.</p>
+    <a class="btn" href="#contact">Begin Your Care Journey</a>
+  </div>
+</section>
+
+<section id="about" class="soft">
+  <div class="container section-head">
+    <span class="eyebrow">About Candle Grove</span>
+    <h2>A softer standard of home care.</h2>
+    <p>At Candle Grove, we believe exceptional care begins with genuine human connection. Our mission is to provide dependable, compassionate, non-medical home services that help clients stay safely and comfortably in the place they know best — home.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Home Care Services</span>
+      <h2>Personalized support for everyday living.</h2>
+      <p>Thoughtful care services designed to support independence, safety, dignity, and peace of mind.</p>
     </div>
-  );
-}
+
+    <div class="grid">
+      <div class="card"><div class="card-body"><h3>Personal Care</h3><p>Bathing, hygiene, grooming, dressing support, and respectful daily assistance.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Companionship</h3><p>Meaningful conversation, social engagement, emotional support, and trusted presence.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Household Help</h3><p>Light housekeeping, laundry, meal preparation, and support with daily routines.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Errands & Transportation</h3><p>Appointments, grocery shopping, pharmacy trips, and essential errands.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Medication Reminders</h3><p>Gentle reminders to help clients follow their medication schedule as directed.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Respite Care</h3><p>Reliable relief for family caregivers who need time to rest and recharge.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="collection" class="soft">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The Candle Grove Collection</span>
+      <h2>Comprehensive support. One trusted family.</h2>
+      <p>Candle Grove extends beyond home care by supporting families, caregivers, professionals, employers, and the Northeast Ohio community.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1200&q=80" alt="Caregiver helping senior at home">
+        <div class="card-body">
+          <h3>Candle Grove Home Care</h3>
+          <p>Personalized non-medical care that promotes independence, safety, dignity, comfort, and meaningful connections.</p>
+          <ul>
+            <li>Personal care assistance</li>
+            <li>Companionship</li>
+            <li>Meal preparation</li>
+            <li>Medication reminders</li>
+            <li>Transportation and errands</li>
+            <li>Respite care</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=1200&q=80" alt="Non-branded fingerprint device">
+        <div class="card-body">
+          <h3>Candle Grove Workforce Solutions</h3>
+          <p>Professional workforce support including fingerprinting, screening assistance, onboarding, and compliance-focused hiring solutions.</p>
+          <ul>
+            <li>Electronic fingerprinting</li>
+            <li>Ohio BCI background check support</li>
+            <li>FBI fingerprint check support</li>
+            <li>Employment screening assistance</li>
+            <li>Caregiver onboarding</li>
+            <li>Identity verification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" id="education">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" alt="Training classroom for caregivers">
+        <div class="card-body">
+          <h3>Candle Grove Education</h3>
+          <p>Training and educational resources that empower caregivers, strengthen professional development, and promote excellence in care.</p>
+          <ul>
+            <li>Caregiver orientation</li>
+            <li>Dementia and Alzheimer's education</li>
+            <li>Communication training</li>
+            <li>Safety and infection prevention</li>
+            <li>Family caregiver workshops</li>
+            <li>Continuing education opportunities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card" id="consulting">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" alt="Family consultation meeting">
+        <div class="card-body">
+          <h3>Candle Grove Consulting</h3>
+          <p>Trusted guidance to help families and organizations confidently navigate care planning and available support resources.</p>
+          <ul>
+            <li>Home care planning</li>
+            <li>Family consultations</li>
+            <li>Long-term care guidance</li>
+            <li>Veterans benefit education</li>
+            <li>Long-term care insurance guidance</li>
+            <li>Community resource referrals</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="payment">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Payment Options</span>
+      <h2>Flexible options for families.</h2>
+      <p>Candle Grove focuses on private pay, long-term care insurance, and veterans-related support while preparing for future Ohio Medicaid and PASSPORT waiver provider participation as the agency grows.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card"><div class="card-body"><h3>Private Pay</h3><p>Flexible scheduling for families who want dependable care designed around their needs.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Long-Term Care Insurance</h3><p>Support for families reviewing policy benefits and care documentation needs.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Veterans Support</h3><p>Guidance for eligible veterans and families exploring available home care benefit options.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="soft">
+  <div class="container split">
+    <div class="feature">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Community gathering">
+    </div>
+    <div class="feature feature-text">
+      <span class="eyebrow">Our Community</span>
+      <h2>Building stronger communities.</h2>
+      <p>We are proud to support seniors, caregivers, veterans, families, and community partners throughout Northeast Ohio.</p>
+      <p>Through education, outreach, and trusted relationships, Candle Grove is committed to making a meaningful difference beyond the home.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container split">
+    <div class="feature feature-text">
+      <span class="eyebrow">Our Promise</span>
+      <h2>Compassion, dignity, and trust.</h2>
+      <p>Every care journey is unique. At Candle Grove Home Care, we provide personalized, non-medical support with compassion, professionalism, and respect.</p>
+      <p>Our promise is to help individuals remain safe, comfortable, and confident in the place they cherish most: home.</p>
+    </div>
+    <div class="feature">
+      <img src="https://images.unsplash.com/photo-1604881991720-f91add269bed?auto=format&fit=crop&w=1200&q=80" alt="Hands showing comfort and care">
+    </div>
+  </div>
+</section>
+
+<section id="careers" class="soft">
+  <div class="container careers">
+    <div>
+      <span class="eyebrow">Careers</span>
+      <h2>Join a team that cares with purpose.</h2>
+      <p>We are looking for dependable caregivers who believe in compassion, dignity, professionalism, and making a meaningful difference every day.</p>
+      <a class="btn btn-navy" href="#contact">Join Our Team</a>
+    </div>
+    <img src="https://images.unsplash.com/photo-1576765607924-0a6d4e9c3336?auto=format&fit=crop&w=1200&q=80" alt="Caregivers smiling">
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-wrap">
+    <div>
+      <span class="eyebrow">Contact Us</span>
+      <h2 style="font-family:'Playfair Display',serif;color:#12395b;font-size:48px;margin:12px 0;">Begin your care journey.</h2>
+      <p style="color:#5f6772;margin-bottom:18px;">Whether you are seeking care, exploring workforce services, interested in education, looking for consulting, or applying to join our team, Candle Grove is here to help.</p>
+      <p><strong>Phone:</strong> (234) 738-1230</p>
+      <p><strong>Email:</strong> info@candlegrovehomecare.com</p>
+      <p><strong>Serving:</strong> Northeast Ohio</p>
+    </div>
+
+    <div class="contact-box">
+      <form action="mailto:info@candlegrovehomecare.com" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="tel" name="phone" placeholder="Phone Number">
+        <select name="interest">
+          <option>Home Care Services</option>
+          <option>Workforce Solutions</option>
+          <option>Education</option>
+          <option>Consulting</option>
+          <option>Careers</option>
+          <option>Referral Partner</option>
+        </select>
+        <textarea name="message" placeholder="How can we help?"></textarea>
+        <button class="btn btn-navy" type="submit" style="border:none;width:100%;cursor:pointer;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="logo">
+        <svg class="logo-mark" viewBox="0 0 120 120">
+          <path d="M60 94 C47 76 43 55 60 38 C77 55 73 76 60 94Z" fill="#ffffff"/>
+          <path d="M60 20 C50 34 51 48 60 57 C69 48 70 34 60 20Z" fill="#b28a4a"/>
+          <g fill="#ffffff">
+            <ellipse cx="30" cy="34" rx="8" ry="14" transform="rotate(-40 30 34)"/>
+            <ellipse cx="45" cy="24" rx="8" ry="14" transform="rotate(-20 45 24)"/>
+            <ellipse cx="75" cy="24" rx="8" ry="14" transform="rotate(20 75 24)"/>
+            <ellipse cx="90" cy="34" rx="8" ry="14" transform="rotate(40 90 34)"/>
+            <ellipse cx="22" cy="52" rx="8" ry="14" transform="rotate(-70 22 52)"/>
+            <ellipse cx="98" cy="52" rx="8" ry="14" transform="rotate(70 98 52)"/>
+          </g>
+        </svg>
+        <div class="logo-text">
+          <strong style="color:white">Candle Grove</strong>
+          <span>HOME CARE</span>
+        </div>
+      </div>
+      <p style="margin-top:12px;">Where Care Feels Like Home</p>
+    </div>
+
+    <div>
+      <h4>Contact Us</h4>
+      <p>(234) 738-1230</p>
+      <p>info@candlegrovehomecare.com</p>
+      <p>Serving Northeast Ohio</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#collection">Workforce Solutions</a>
+      <a href="#education">Education</a>
+      <a href="#consulting">Consulting</a>
+      <a href="#careers">Careers</a>
+    </div>
+
+    <div>
+      <h4>Connect With Us</h4>
+      <div class="social">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="mailto:info@candlegrovehomecare.com">Email</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">© 2026 Candle Grove Home Care. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
+```
